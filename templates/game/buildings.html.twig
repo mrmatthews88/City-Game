@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Building Status</h1>
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>Building</th>
+            <th>Health</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for building in town.buildings %}
+            <tr class="{% if building.health <= 0 %}bg-danger{% endif %}">
+                <td>{{ building.name }}</td>
+                <td>{{ building.health }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

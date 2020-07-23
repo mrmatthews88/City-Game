@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Log</h1>
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>Message</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for output in town.output|reverse %}
+            <tr>
+                <td>{{ output|join(", ") }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

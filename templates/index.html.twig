@@ -1,0 +1,10 @@
+{% set page = "index" %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>City-Game</h1>
+    <p class="lead">This is a simple game, in which you will attempt to either destroy the castle or <strong>ALL</strong> the farms and houses</p>
+    <p>The city consists of 1 castle, 3 houses and 3 farms.</p>
+    <p>You will be attacking with your trebuchet, good luck!</p>
+    <a href="{{ path("GameStart") }}" class="btn btn-success">Start Game</a>
+{% endblock %}

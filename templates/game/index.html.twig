@@ -1,0 +1,44 @@
+{% set page = "game" %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-12 text-right">
+
+    </div>
+
+    {% if town.objectiveMet %}
+        <div class="alert alert-success" role="alert">
+            Success, you have beaten the city.
+        </div>
+    {% endif %}
+
+    <div class="alert alert-info" role="alert">
+        {{ town.latestOutput|nl2br }}
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            {% include 'game/buildings.html.twig' %}
+
+            {% if not town.objectiveMet %}
+                {% for weapon in armoury.weapons %}
+
+                    <form method="post" action="{{ path("GameAttack") }}">
+                        <button name="weapon" value="{{ weapon.id }}" class="btn btn-sm btn-success">Use {{ weapon.name }}
+                            ({{ weapon.damage }})
+                        </button>
+                    </form>
+                {% endfor %}
+
+            {% endif %}
+
+        </div>
+        <div class="col-xs-12 col-md-4">
+            {% include 'game/history.html.twig' %}
+        </div>
+    </div>
+
+
+
+{% endblock %}
